@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * This file is part of the cawa0505/laravel-thl-pinyin.
  *
  * This source file is subject to the MIT license that is bundled
