@@ -10,7 +10,7 @@
 namespace THL\LaravelPinyin;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
-use THL\Pinyin\Pinyin;
+use THL\Pinyin;
 
 class ServiceProvider extends LaravelServiceProvider
 {
