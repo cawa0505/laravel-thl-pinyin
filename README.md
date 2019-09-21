@@ -1,23 +1,23 @@
-# Laravel-pinyin
+# Laravel-thl-pinyin
 
-Chinese to Pinyin translator for Laravel5 / Lumen based on [overtrue/pinyin](https://github.com/overtrue/pinyin).
+Romanization tool for Traditional Chinese in Laravel5 / Lumen based on [thl/pinyin](https://github.com/thl-pinyin/php-thl-pinyin).
 
-[![Latest Stable Version](https://poser.pugx.org/overtrue/laravel-pinyin/v/stable.svg)](https://packagist.org/packages/overtrue/laravel-pinyin) [![Total Downloads](https://poser.pugx.org/overtrue/laravel-pinyin/downloads.svg)](https://packagist.org/packages/overtrue/laravel-pinyin) [![Latest Unstable Version](https://poser.pugx.org/overtrue/laravel-pinyin/v/unstable.svg)](https://packagist.org/packages/overtrue/laravel-pinyin) [![License](https://poser.pugx.org/overtrue/laravel-pinyin/license.svg)](https://packagist.org/packages/overtrue/laravel-pinyin)
+[![Latest Stable Version](https://poser.pugx.org/cawa0505/laravel-thl-pinyin/v/stable.svg)](https://packagist.org/packages/cawa0505/laravel-thl-pinyin) [![Total Downloads](https://poser.pugx.org/cawa0505/laravel-thl-pinyin/downloads.svg)](https://packagist.org/packages/overtrue/laravel-pinyin) [![Latest Unstable Version](https://poser.pugx.org/cawa0505/laravel-thl-pinyin/v/unstable.svg)](https://packagist.org/packages/overtrue/laravel-pinyin) [![License](https://poser.pugx.org/cawa0505/laravel-thl-pinyin/license.svg)](https://packagist.org/packages/overtrue/laravel-pinyin)
 
 ## Install
 
 ```shell
-composer require "overtrue/laravel-pinyin:~3.0"
+composer require "overtrue/laravel-pinyin"
 ```
 
-## For Laravel
+## For Laravel under 5.5
 
 Add the following line to the section `providers` of `config/app.php`:
 
 ```php
 'providers' => [
     //...
-    Overtrue\LaravelPinyin\ServiceProvider::class,
+    THL\LaravelPinyin\ServiceProvider::class,
 ],
 ```
 
@@ -27,7 +27,7 @@ as optional, you can use facade:
 
 'aliases' => [
     //...
-    'Pinyin' => Overtrue\LaravelPinyin\Facades\Pinyin::class,
+    'Pinyin' => THL\LaravelPinyin\Facades\Pinyin::class,
 ],
 ```
 
@@ -39,19 +39,19 @@ Add the following line to `bootstrap/app.php` after `// $app->withEloquent();`
 ...
 // $app->withEloquent();
 
-$app->register(Overtrue\LaravelPinyin\ServiceProvider::class);
+$app->register(THL\LaravelPinyin\ServiceProvider::class);
 ...
 ```
 
 ## Usage
 
-you can get the instance of `Overtrue\Pinyin\Pinyin` from app container:
+you can get the instance of `THL\Pinyin` from app container:
 
 ```php
 
 $pinyin = app('pinyin');
-echo $pinyin->sentence('带着希望去旅行，比到达终点更美好');
-// dài zhe xī wàng qù lǔ xíng, bǐ dào dá zhōng diǎn gèng měi hǎo
+echo $pinyin->bpmf("THL台灣華語羅馬拼音");
+// returns "THL ㄊㄞˊ ㄨㄢ ㄏㄨㄚˊ ㄩˇ ㄌㄨㄛˊ ㄇㄚˇ ㄆㄧㄣ ㄧㄣ"
 ```
 
 There are more convenient functions:
@@ -85,13 +85,8 @@ echo Pinyin::sentence('带着希望去旅行，比到达终点更美好');
 
 ```
 
-About `overtrue/pinyin` specific configuration and use, refer to: [overtrue/pinyin](https://github.com/overtrue/pinyin)
+About `thl/pinyin` specific configuration and use, refer to: [thl/pinyin](https://github.com/thl-pinyin/php-thl-pinyin)
 
-## PHP 扩展包开发
-
-> 想知道如何从零开始构建 PHP 扩展包？
->
-> 请关注我的实战课程，我会在此课程中分享一些扩展开发经验 —— [《PHP 扩展包实战教程 - 从入门到发布》](https://learnku.com/courses/creating-package)
 
 ## License
 

@@ -1,9 +1,10 @@
 {
     "name": "cawa0505/laravel-thl-pinyin",
-    "description": "Romanization tool for Traditional Chinese. A Laravel Wrapper of thl/pinyin",
+    "description": "Romanization tool for Traditional Chinese. A Laravel Wrapper for thl/pinyin",
     "keywords": [
         "laravel",
         "pinyin",
+        "bopomofo",
         "chinese"
     ],
     "require": {
@@ -12,10 +13,7 @@
     "autoload": {
         "psr-4": {
             "THL\\LaravelPinyin\\": "src/"
-        },
-        "files": [
-            "src/helpers.php"
-        ]
+        }
     },
     "extra": {
         "laravel": {
