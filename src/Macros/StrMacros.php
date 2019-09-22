@@ -41,7 +41,7 @@ class StrMacros
      * @param mixed $value
      * @return self
      */
-    public function pinyinBpmf()
+    public function bpmf()
     {
         return function (string $str) {
             return Pinyin::bpmf($str);
