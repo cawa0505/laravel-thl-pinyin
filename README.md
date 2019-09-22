@@ -45,33 +45,57 @@ $app->register(THL\LaravelPinyin\ServiceProvider::class);
 
 ## Usage
 
+#### instance
+
 you can get the instance of `THL\Pinyin` from app container:
 
 ```php
-
-$pinyin = app('pinyin');
+$pinyin = app('thl-pinyin');
 echo $pinyin->bpmf('THL台灣華語羅馬拼音');
 // returns "THL ㄊㄞˊ ㄨㄢ ㄏㄨㄚˊ ㄩˇ ㄌㄨㄛˊ ㄇㄚˇ ㄆㄧㄣ ㄧㄣ"
 ```
+#### Str Macro
 
-There are more convenient functions:
+There are some macro to Str
+
+|  macro      | method                                                |
+| -------------  | --------------------------------------------------- |
+| `Str::pinyin()`     | `app('pinyin')->pinyin()`                              |
+| `Str::pinyinSlug()` | `app('pinyin')->slug()`                         |
+| `Str::bpmf()`     | `app('pinyin')->bpmf()`                                        |
+
+
+```php
+use Illuminate\Support\Str;
+
+Str::pinyin('THL台灣華語羅馬拼音');
+// returns "THL tai2 wan1 hua2 yu3 luo2 ma3 pin1 yin1"
+
+Str::bpmf('THL台灣華語羅馬拼音');
+// returns "THL ㄊㄞˊ ㄨㄢ ㄏㄨㄚˊ ㄩˇ ㄌㄨㄛˊ ㄇㄚˇ ㄆㄧㄣ ㄧㄣ"
+...
+```
+
+#### helper functions
+
+There are some convenient functions:
 
 |  function      | method                                                |
 | -------------  | --------------------------------------------------- |
 | `pinyin()`     | `app('pinyin')->pinyin()`                              |
-| `pinyin_bpmf()`     | `app('pinyin')->bpmf()`                                        |
-| `pinyin_slug` | `app('pinyin')->slug()`                         |
+| `pinyin_slug()` | `app('pinyin')->slug()`                         |
+| `bpmf()`     | `app('pinyin')->bpmf()`                                        |
 
 ```php
 pinyin('THL台灣華語羅馬拼音');
 // returns "THL tai2 wan1 hua2 yu3 luo2 ma3 pin1 yin1"
 
-pinyin_bpmf('THL台灣華語羅馬拼音');
+bpmf('THL台灣華語羅馬拼音');
 // returns "THL ㄊㄞˊ ㄨㄢ ㄏㄨㄚˊ ㄩˇ ㄌㄨㄛˊ ㄇㄚˇ ㄆㄧㄣ ㄧㄣ"
 ...
 ```
 
-Using facade:
+#### Using facade
 
 ```php
 use THL\LaravelPinyin\Facades\Pinyin;

@@ -59,7 +59,7 @@ if (!function_exists('pinyin_slug')) {
     }
 }
 
-if (!function_exists('pinyin_bpmf')) {
+if (!function_exists('bpmf')) {
     /**
      * Get a bopomofo from string.
      *
@@ -67,7 +67,7 @@ if (!function_exists('pinyin_bpmf')) {
      *
      * @return string
      */
-    function pinyin_bpmf($string)
+    function bpmf($string)
     {
         return app(Pinyin::class)->bpmf($string);
     }

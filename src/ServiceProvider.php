@@ -34,7 +34,7 @@ class ServiceProvider extends LaravelServiceProvider
         $this->app->singleton(Pinyin::class, function () {
             return new Pinyin();
         });
-        $this->app->alias(Pinyin::class, 'laravel-thl-pinyin');
+        $this->app->alias(Pinyin::class, 'thl-pinyin');
         Str::mixin(new StrMacros);
     }
 
@@ -45,6 +45,6 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function provides(): array
     {
-        return [Pinyin::class, 'laravel-thl-pinyin'];
+        return [Pinyin::class, 'thl-pinyin'];
     }
 }

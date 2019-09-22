@@ -18,6 +18,6 @@ class Pinyin extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'laravel-thl-pinyin';
+        return 'thl-pinyin';
     }
 }
