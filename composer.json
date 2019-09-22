@@ -8,7 +8,7 @@
         "chinese"
     ],
     "require": {
-        "thl/pinyin": "~1.0",
+        "thl/pinyin": "~1.2",
         "php": "~7.0",
         "laravel/framework": "~5.7|^6.0"
     },
