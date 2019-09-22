@@ -22,6 +22,17 @@ class ServiceProvider extends LaravelServiceProvider
      */
     protected $defer = true;
 
+    public function boot()
+    {
+        Str::macro('pinyin', function ($str) {
+            return Pinyin::pinyin($str);
+        });
+
+        Str::macro('pinyinSlug', function ($str) {
+            return Pinyin::slug($str);
+        });
+    }
+
     /**
      * Register the provider.
      */
@@ -32,14 +43,6 @@ class ServiceProvider extends LaravelServiceProvider
         });
 
         $this->app->alias(Pinyin::class, 'pinyin');
-
-        Str::macro('pinyin', function ($str) {
-            return Pinyin::pinyin($str);
-        });
-
-        Str::macro('pinyinSlug', function ($str) {
-            return Pinyin::slug($str);
-        });
     }
 
     /**
