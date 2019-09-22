@@ -10,12 +10,14 @@
 namespace THL\LaravelPinyin\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use THL\Pinyin as Accessor;
 
 class Pinyin extends Facade
 {
-    public static function getFacadeAccessor()
+    /**
+     * Get the registered name of the component.
+     */
+    protected static function getFacadeAccessor(): string
     {
-        return Accessor::class;
+        return 'laravel-thl-pinyin';
     }
 }

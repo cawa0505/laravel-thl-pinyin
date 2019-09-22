@@ -15,7 +15,10 @@
     "autoload": {
         "psr-4": {
             "THL\\LaravelPinyin\\": "src/"
-        }
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
     "extra": {
         "laravel": {

@@ -12,28 +12,10 @@ namespace THL\LaravelPinyin;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use Illuminate\Support\Str;
 use THL\LaravelPinyin\Macros\StrMacros;
+use THL\Pinyin;
 
 class ServiceProvider extends LaravelServiceProvider
 {
-    /**
-     * Indicates if loading of the provider is deferred.
-     *
-     * @var bool
-     */
-    protected $defer = true;
-
-    /**
-     * Register the provider.
-     */
-    public function register()
-    {
-        $this->app->singleton(Pinyin::class, function ($app) {
-            return new Pinyin();
-        });
-
-        $this->app->alias(Pinyin::class, 'pinyin');
-    }
-
     /**
      * Boot the service provider.
      *
@@ -41,7 +23,18 @@ class ServiceProvider extends LaravelServiceProvider
      */
     public function boot()
     {
-        parent::boot();
+        // 
+    }
+
+    /**
+     * Register the provider.
+     */
+    public function register()
+    {
+        $this->app->singleton(Pinyin::class, function () {
+            return new Pinyin();
+        });
+        $this->app->alias(Pinyin::class, 'laravel-thl-pinyin');
         Str::mixin(new StrMacros);
     }
 
@@ -50,8 +43,8 @@ class ServiceProvider extends LaravelServiceProvider
      *
      * @return array
      */
-    public function provides()
+    public function provides(): array
     {
-        return [Pinyin::class, 'pinyin'];
+        return [Pinyin::class, 'laravel-thl-pinyin'];
     }
 }

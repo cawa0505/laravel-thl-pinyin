@@ -2,6 +2,8 @@
 
 namespace THL\LaravelPinyin\Macros;
 
+use THL\Pinyin;
+
 class StrMacros
 {
     /**
@@ -14,11 +16,11 @@ class StrMacros
     public function pinyin()
     {
         return function (string $str) {
-            return pinyin($str);
+            return Pinyin::pinyin($str);
         };
     }
 
-        /**
+    /**
      * Replace a value in the request object.
      *
      * @param string|integer $key
@@ -28,7 +30,7 @@ class StrMacros
     public function pinyinSlug()
     {
         return function (string $str) {
-            return pinyin_slug($str);
+            return Pinyin::slug($str);
         };
     }
 }
