@@ -11,6 +11,7 @@ namespace THL\LaravelPinyin;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use THL\Pinyin;
+use Illuminate\Support\Str;
 
 class ServiceProvider extends LaravelServiceProvider
 {
@@ -41,5 +42,21 @@ class ServiceProvider extends LaravelServiceProvider
     public function provides()
     {
         return [Pinyin::class, 'pinyin'];
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Str::macro('pinyin', function ($str) {
+            return Pinyin::pinyin($str);
+        });
+
+        Str::macro('pinyin-slug', function ($str) {
+            return Pinyin::slug($str);
+        });
     }
 }
