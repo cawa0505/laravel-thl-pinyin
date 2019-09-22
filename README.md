@@ -50,7 +50,7 @@ you can get the instance of `THL\Pinyin` from app container:
 ```php
 
 $pinyin = app('pinyin');
-echo $pinyin->bpmf("THL台灣華語羅馬拼音");
+echo $pinyin->bpmf('THL台灣華語羅馬拼音');
 // returns "THL ㄊㄞˊ ㄨㄢ ㄏㄨㄚˊ ㄩˇ ㄌㄨㄛˊ ㄇㄚˇ ㄆㄧㄣ ㄧㄣ"
 ```
 
@@ -58,30 +58,29 @@ There are more convenient functions:
 
 |  function      | method                                                |
 | -------------  | --------------------------------------------------- |
-| `pinyin()`     | `app('pinyin')->convert()`                              |
-| `pinyin_abbr()`     | `app('pinyin')->abbr()`                                        |
-| `pinyin_permalink` | `app('pinyin')->permalink()`                         |
-| `pinyin_sentence` | `app('pinyin')->sentence()`                         |
+| `pinyin()`     | `app('pinyin')->pinyin()`                              |
+| `pinyin_bpmf()`     | `app('pinyin')->bpmf()`                                        |
+| `pinyin_slug` | `app('pinyin')->slug()`                         |
 
 ```php
-var_dump(pinyin('带着希望去旅行，比到达终点更美好'));
-// ["dai", "zhe", "xi", "wang", "qu", "lv", "xing", "bi", "dao", "da", "zhong", "dian", "geng", "mei", "hao"]
+pinyin('THL台灣華語羅馬拼音');
+// returns "THL tai2 wan1 hua2 yu3 luo2 ma3 pin1 yin1"
 
-var_dump(pinyin_abbr('带着希望去旅行'));
-// dzxwqlx
+pinyin_bpmf('THL台灣華語羅馬拼音');
+// returns "THL ㄊㄞˊ ㄨㄢ ㄏㄨㄚˊ ㄩˇ ㄌㄨㄛˊ ㄇㄚˇ ㄆㄧㄣ ㄧㄣ"
 ...
 ```
 
 Using facade:
 
 ```php
-use Pinyin; // Facade class, NOT Overtrue\Pinyin\Pinyin
+use THL\LaravelPinyin\Facades\Pinyin;
 
-var_dump(Pinyin::convert('带着希望去旅行'));
-// ["dai", "zhe", "xi", "wang", "qu", "lv", "xing"]
+Pinyin::pinyin('THL台灣華語羅馬拼音');
+// returns "THL tai2 wan1 hua2 yu3 luo2 ma3 pin1 yin1"
 
-echo Pinyin::sentence('带着希望去旅行，比到达终点更美好');
-// dài zhe xī wàng qù lǔ xíng, bǐ dào dá zhōng diǎn gèng měi hǎo
+Pinyin::slug('THL台灣華語羅馬拼音');
+// returns "thl-tai-wan-hua-yu-luo-ma-pin-yin"
 
 ```
 
