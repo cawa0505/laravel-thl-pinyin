@@ -55,7 +55,7 @@ class ServiceProvider extends LaravelServiceProvider
             return Pinyin::pinyin($str);
         });
 
-        Str::macro('pinyin-slug', function ($str) {
+        Str::macro('pinyinSlug', function ($str) {
             return Pinyin::slug($str);
         });
     }
