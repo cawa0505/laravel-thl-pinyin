@@ -32,6 +32,14 @@ class ServiceProvider extends LaravelServiceProvider
         });
 
         $this->app->alias(Pinyin::class, 'pinyin');
+
+        Str::macro('pinyin', function ($str) {
+            return Pinyin::pinyin($str);
+        });
+
+        Str::macro('pinyinSlug', function ($str) {
+            return Pinyin::slug($str);
+        });
     }
 
     /**
@@ -42,21 +50,5 @@ class ServiceProvider extends LaravelServiceProvider
     public function provides()
     {
         return [Pinyin::class, 'pinyin'];
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Str::macro('pinyin', function ($str) {
-            return Pinyin::pinyin($str);
-        });
-
-        Str::macro('pinyinSlug', function ($str) {
-            return Pinyin::slug($str);
-        });
     }
 }
