@@ -10,8 +10,8 @@
 namespace THL\LaravelPinyin;
 
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
-use THL\Pinyin;
 use Illuminate\Support\Str;
+use THL\LaravelPinyin\Macros\StrMacros;
 
 class ServiceProvider extends LaravelServiceProvider
 {
@@ -23,26 +23,6 @@ class ServiceProvider extends LaravelServiceProvider
     protected $defer = true;
 
     /**
-     * Boot the service provider.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        if (Str::hasMacro('pinyin') || Str::hasMacro('pinyinSlug')) {
-            return;
-        }
-
-        Str::macro('pinyin', function (string $str) {
-            return Pinyin::pinyin($str);
-        });
-
-        Str::macro('pinyinSlug', function (string $str) {
-            return Pinyin::slug($str);
-        });
-    }
-
-    /**
      * Register the provider.
      */
     public function register()
@@ -52,6 +32,17 @@ class ServiceProvider extends LaravelServiceProvider
         });
 
         $this->app->alias(Pinyin::class, 'pinyin');
+    }
+
+    /**
+     * Boot the service provider.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        parent::boot();
+        Str::mixin(new StrMacros);
     }
 
     /**
