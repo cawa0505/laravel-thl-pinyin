@@ -33,4 +33,18 @@ class StrMacros
             return Pinyin::slug($str);
         };
     }
+
+    /**
+     * Replace a value in the request object.
+     *
+     * @param string|integer $key
+     * @param mixed $value
+     * @return self
+     */
+    public function pinyinBpmf()
+    {
+        return function (string $str) {
+            return Pinyin::bpmf($str);
+        };
+    }
 }
