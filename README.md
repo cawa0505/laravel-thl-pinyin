@@ -7,7 +7,7 @@ Romanization tool for Traditional Chinese in Laravel5 / Lumen based on [thl/piny
 ## Install
 
 ```shell
-composer require "overtrue/laravel-pinyin"
+composer require "cawa0505/laravel-thl-pinyin"
 ```
 
 ## For Laravel if don't discover
