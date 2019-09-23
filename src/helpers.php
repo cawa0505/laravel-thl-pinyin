@@ -6,7 +6,6 @@
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  */
-
 use THL\Pinyin;
 
 if (!function_exists('pinyin')) {
@@ -28,8 +27,8 @@ if (!function_exists('pinyin')) {
     ) {
         return app(Pinyin::class)->pinyin($string, [
             'notation' => $notation,
-            'tone' => $tone,
-            'split' => $split,
+            'tone'     => $tone,
+            'split'    => $split,
         ]);
     }
 }
@@ -53,8 +52,8 @@ if (!function_exists('pinyin_slug')) {
     ) {
         return app(Pinyin::class)->slug($string, [
             'notation' => $notation,
-            'tone' => $tone,
-            'split' => $split,
+            'tone'     => $tone,
+            'split'    => $split,
         ]);
     }
 }
