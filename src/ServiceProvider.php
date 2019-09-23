@@ -35,7 +35,7 @@ class ServiceProvider extends LaravelServiceProvider
             return new Pinyin();
         });
         $this->app->alias(Pinyin::class, 'thl-pinyin');
-        Str::mixin(new StrMacros);
+        Str::mixin(new StrMacros());
     }
 
     /**

@@ -9,8 +9,9 @@ class StrMacros
     /**
      * Replace a value in the request object.
      *
-     * @param string|integer $key
-     * @param mixed $value
+     * @param string|int $key
+     * @param mixed      $value
+     *
      * @return self
      */
     public function pinyin()
@@ -23,8 +24,9 @@ class StrMacros
     /**
      * Replace a value in the request object.
      *
-     * @param string|integer $key
-     * @param mixed $value
+     * @param string|int $key
+     * @param mixed      $value
+     *
      * @return self
      */
     public function pinyinSlug()
@@ -37,8 +39,9 @@ class StrMacros
     /**
      * Replace a value in the request object.
      *
-     * @param string|integer $key
-     * @param mixed $value
+     * @param string|int $key
+     * @param mixed      $value
+     *
      * @return self
      */
     public function bpmf()
