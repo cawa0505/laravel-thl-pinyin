@@ -13,23 +13,14 @@ if (!function_exists('pinyin')) {
      * Get a pinyin slug from string.
      *
      * @param string $string
-     * @param string $notation
-     * @param string $tone
-     * @param string $split
+     * @param array $options
      *
      * @return string
      */
     function pinyin(
-        $string,
-        $notation = 'thl',
-        $tone = 'number',
-        $split = 'word'
+        $string, array $options = []
     ) {
-        return app(Pinyin::class)->pinyin($string, [
-            'notation' => $notation,
-            'tone'     => $tone,
-            'split'    => $split,
-        ]);
+        return app(Pinyin::class)->pinyin($string, $options);
     }
 }
 
@@ -38,23 +29,14 @@ if (!function_exists('pinyin_slug')) {
      * Get a pinyin slug from string.
      *
      * @param string $string
-     * @param string $notation
-     * @param string $tone
-     * @param string $split
+     * @param array $options
      *
      * @return string
      */
     function pinyin_slug(
-        $string,
-        $notation = 'thl',
-        $tone = 'number',
-        $split = 'word'
+        $string, array $options = []
     ) {
-        return app(Pinyin::class)->slug($string, [
-            'notation' => $notation,
-            'tone'     => $tone,
-            'split'    => $split,
-        ]);
+        return app(Pinyin::class)->slug($string, $options);
     }
 }
 
